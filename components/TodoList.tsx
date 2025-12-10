@@ -28,33 +28,33 @@ export default function TodoList({ todos, onRefresh }: TodoListProps) {
   return (
     <div className="w-full max-w-2xl">
       {/* Filter Buttons */}
-      <div className="mb-6 flex gap-2 justify-center">
+      <div className="mb-6 flex gap-2 justify-center flex-wrap">
         <button
           onClick={() => setFilter('all')}
-          className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+          className={`px-4 py-2 rounded-lg font-medium transition-all ${
             filter === 'all'
-              ? 'bg-blue-500 text-white'
-              : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-lg shadow-cyan-500/20'
+              : 'bg-slate-800 text-slate-400 hover:bg-slate-700 border border-slate-700'
           }`}
         >
           All ({todos.length})
         </button>
         <button
           onClick={() => setFilter('active')}
-          className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+          className={`px-4 py-2 rounded-lg font-medium transition-all ${
             filter === 'active'
-              ? 'bg-blue-500 text-white'
-              : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-lg shadow-cyan-500/20'
+              : 'bg-slate-800 text-slate-400 hover:bg-slate-700 border border-slate-700'
           }`}
         >
           Active ({activeCount})
         </button>
         <button
           onClick={() => setFilter('completed')}
-          className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+          className={`px-4 py-2 rounded-lg font-medium transition-all ${
             filter === 'completed'
-              ? 'bg-blue-500 text-white'
-              : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-lg shadow-cyan-500/20'
+              : 'bg-slate-800 text-slate-400 hover:bg-slate-700 border border-slate-700'
           }`}
         >
           Completed ({completedCount})
@@ -62,12 +62,13 @@ export default function TodoList({ todos, onRefresh }: TodoListProps) {
       </div>
 
       {/* Todos List */}
-      <div className="space-y-2">
+      <div className="space-y-3">
         {filteredTodos.length === 0 ? (
-          <div className="text-center py-8 text-gray-500">
-            {filter === 'all' && 'No todos yet. Create one to get started!'}
-            {filter === 'active' && 'No active todos.'}
-            {filter === 'completed' && 'No completed todos yet.'}
+          <div className="text-center py-12 text-slate-500">
+            <div className="text-5xl mb-4">✨</div>
+            {filter === 'all' && 'No tasks yet. Create one to get started!'}
+            {filter === 'active' && 'No active tasks. Great job!'}
+            {filter === 'completed' && 'No completed tasks yet.'}
           </div>
         ) : (
           filteredTodos.map((todo) => (

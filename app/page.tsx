@@ -31,21 +31,25 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8 px-4">
+    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-8 px-4">
       <div className="max-w-2xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">
-            My Todo List
-          </h1>
-          <p className="text-gray-600">
-            Stay organized and track your daily tasks
+        <div className="text-center mb-12">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="w-1 h-12 bg-gradient-to-b from-blue-400 to-cyan-400 rounded"></div>
+            <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent">
+              TaskFlow
+            </h1>
+            <div className="w-1 h-12 bg-gradient-to-b from-cyan-400 to-blue-400 rounded"></div>
+          </div>
+          <p className="text-slate-400 text-lg font-light tracking-wide">
+            Manage your tasks with elegance and precision
           </p>
         </div>
 
         {/* Error Message */}
         {error && (
-          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg mb-6">
+          <div className="bg-red-950/30 border border-red-800/50 text-red-300 px-4 py-3 rounded-lg mb-6 backdrop-blur-sm">
             {error}
           </div>
         )}
@@ -57,9 +61,9 @@ export default function Home() {
         {isLoading ? (
           <div className="text-center py-12">
             <div className="inline-block">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+              <div className="animate-spin rounded-full h-12 w-12 border-2 border-slate-600 border-t-cyan-400"></div>
             </div>
-            <p className="mt-4 text-gray-600">Loading todos...</p>
+            <p className="mt-4 text-slate-500">Loading tasks...</p>
           </div>
         ) : (
           /* Todo List */
